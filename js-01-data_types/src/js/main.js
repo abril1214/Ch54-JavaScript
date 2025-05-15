@@ -47,9 +47,22 @@ let valor2 = 4;
 console.log("El resultado de " + valor1 + " * " + valor2 + " = " + valor1 * valor2 + " pesos.");
 console.log(`El resultado de ${valor1} * ${valor2} = ${valor1*valor2} pesos.`);
 
+/* 
+Crear una variable con el nombre de la persona que cumple años
+Crear una variable con el regalo que le darás
+
+Mostrar en consola el mensaje que incluya el nombre de las personas y el regalo.
+*/
+let nombre= "Jen";
+let regalo = "un abrazo";
+
+function felicitarCumple(nombre, regalo){ 
+console.log(`${nombre} cumple años y su regalo es: ${regalo}`);
+}
+felicitarCumple(nombre, regalo);
+
 /*
  Tipos de datos number.
-
  - números positivos: 100, 1, 0.258
  - números negativos: -1 , -50.35
  - valores que no pueden ser representados numéricamente: NaN
@@ -68,7 +81,21 @@ console.log( typeof ( 3 + "Viernes temático" ) ); // 'string'
 console.log( typeof ( "3Viernes temático" ) ); // 'string'
 console.log( 4 / 0 ); // +Infinity
 
+/* Comprueba si las siguientes variables son del tipo number */
+const num1 = 42;
+if (typeof num1 === "number") {
+  console.log("42 es un número");
+} else {
+  console.log("42 no es un número");
+}
 
+/* Comprueba si las siguientes variables son del tipo string */
+const namech54 = "Luis";
+if (typeof namech54 === "string") {
+  console.log("Luis es un string");
+} else {
+  console.log("Luis no es un número");
+}
 /*
  Cuando se realizan operaciones que exceden los límites
  de MAX_SAFE_INTEGER se produce una pérdida de precisión.
@@ -160,6 +187,7 @@ console.log( typeof myName ); // 'undefined'
 const edadMascota = 10;
 // conversión explícita a String ============================================
 const edadMascotaString = String( edadMascota );
+const edadMascotaString2 = "" + edadMascota;
 console.log(`Mi mascota tiene ${ edadMascotaString } años`);
 console.log(`Mi mascota tiene ${ edadMascota } años`);
 console.log( String( true ) ); // "true"
