@@ -32,7 +32,7 @@
          else sentencia_si_condicion2_es_falsa;
 
 
-    if ( condicion1 ) sentencias;
+    if ( condicion1 ) sentencias; +recomendable
     else if ( condicion2 ) sentencia;
     else if ( condicion3 ) sentencia;
     else if ( condicion4 ) sentencia;
@@ -42,6 +42,74 @@
 
 */
 
+/*
+    Crear un arrow function que reciba el valor de edad.
+    Si la edad es mayor o igual a 18, la función debe retornar el mensaje: eres mayor de edad.
+
+    En cas contrario, retornar el mensaje: eres menor de edad.
+    -Realizar la versión de if else SIN usar el bloque de código
+*/
+    const calcularEdad = (edad) =>{
+        if ( edad >=18) return "Eres mayor de edad.";
+        else return "Eres menor de edad.";
+    };
+
+   const resultado = calcularEdad(18);
+   console.log(resultado);
+
+
+/*
+ Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18 y menor o igual a 30
+                 ( evalur con 18 Y(&&) evaluar con 30        )
+ la función debe retornar el mensaje "Tu luchador es Místico".
+ Si es mayor o igual a 31 el mensaje "Tu luchador es el perro Aguayo".
+ Si es menor a 18 el mensaje "Tu luchador es Penta"
+*/
+const verificarEdad = (edad) =>{
+    if (edad >= 18 && edad <= 30) return "Tu luchador es místico.";
+    else if (edad >= 31) return "Tu luchador es el perro guayo.";
+    else return "Tu luchador es penta.";
+};
+console.log(verificarEdad(25));
+
+// ------------------- Bloque de código
+{
+    let myVarLet = 30;
+    const myVarConst = 40;
+    var myVarVar = 50;
+    console.log(myVarLet, myVarConst, myVarVar) // 30,40,50
+    {
+        let myVarLet = 100;
+        const myVarConst = 110;
+        var myVarVar = 120;
+        console.log(myVarLet, myVarConst, myVarVar) // 100,110,120
+    }
+    console.log(myVarLet, myVarConst, myVarVar) // 30,40,120
+}
+
+
+// ======================== Ejercicios mentales
+let active = false
+if(active === true); { // El ; mata la sentencia lo acaba, entonces el if y el bloque de código del console.log son cosas distintas. Los condicionales pueden o no llevar {}
+    console.log("Esta activo")
+}
+console.log("Fin del programa");
+
+//------------------- #2
+active = false;
+if(active === true)
+    console.log("Está activo"); // (x) Esta no se imprime porque no cumple con el condicional; los if solo cumplen con 1 sola condición
+    console.log("Tiene autorización"); // (|) se imprime porque es una línea de código independiente
+
+    console.log("Fin del programa"); // (|) se imprime porque es una línea de código independiente
+
+
+// -------------- #3
+active = false;
+if( active ); console.log("Está activo"); // (|) se imprime
+// else console.log("No está activo"); // (x) unexpected token else: No se imprime porque el else no puede estar solo; tiene un error de síntasis porque le falta el if (lo matamos con el ;)
+// console.log("Fin del programa"); //(x) tampoco se imprime porque el else ya le dió en la madre jajaja
 
 
 
@@ -72,7 +140,34 @@
   }
 
 */
-
+const evaluarNombre = ( nombre ) => {
+    let resultado;
+    switch ( nombre){
+        case "Lua":
+            resultado = "Es de Abril";
+            break;
+        case "Borrego":
+        case "Besito":
+        case "Frijol":
+        case "Paco":
+            resultado = "Es de Yessica";
+            break;
+        case "Milo":
+            resultado = "Es de Carlos";
+            break;
+        case "Cuchara":
+            resultado = "Es de Ricardo";
+            break;
+        default:
+            resultado ="No se sabe de quién es";
+        
+    }
+    return resultado;
+}
+console.log( evaluarNombre("Lua") ); // Es de Abril
+console.log( evaluarNombre("Milo") ); // "No se sabe de quién es"; si es que no se ponen los breaks
+console.log( evaluarNombre("Borrego") );
+const nombreMascota = "Lua";
 
 
 
@@ -86,11 +181,44 @@
  * Cualquier otro valor: Velocidad desconocida
  * @param {number} velocidad
  * @returns {string} mensaje
+ * 
+ * Realizar dos versiones, una versión con switch y otra con if-else
  */
 
+const saberVelocidad = (velocidad) =>{
+    let opc;
+        if ( velocidad === 0) opc = "Apagado.";
+        else if ( velocidad === 1 ) opc = "Baja.";
+        else if ( velocidad === 2 ) opc = "Media.";
+        else if ( velocidad === 3 ) opc = "Alta.";
+        return opc;
+    };
+console.log(saberVelocidad(1));
 
 
+// ---------- # Versión 2
 
+const obtenerVelocidad = (velocidad) =>{
+let resultado;
+    switch ( velocidad ){
+        case 0:
+            resultado = "Apagado";
+            break;
+        case 1:
+            resultado = "Baja";
+            break;
+        case 2:
+            resultado = "Media";
+            break;
+        case 3:
+            resultado = "Alta";
+            break;
+        default:
+            resultado ="El ventilador no está conectado";  
+    };
+    return resultado;
+};
+console.log(obtenerVelocidad(4));
 // ------------------------ Operador ternario --------------------------
 /*
  Es el único operador de JavaScript que tiene 3 operandos.
