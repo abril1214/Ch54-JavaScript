@@ -258,10 +258,17 @@ const compararNumeros = ( a, b ) => {
     return 0;
 }
 
+const compararNumeros2 =(a, b)=> a - b;
+
+const compararNumerosOrdenDescendente = (a, b) => {
+    if ( a < b)
+}
+
 const ordenarNumeros = ( numerosDesordenados, fncCallBack)=>{
     const numerosOrdenados = numerosDesordenados;
     numerosOrdenados.sort( fncCallBack );
     return numerosOrdenados;
 }
 console.log ( numerosIniciales );
-console.log ( ordenarNumeros(numerosIniciales) );
+console.log ( ordenarNumeros( numerosIniciales, compararNumeros) );
+console.log ( ordenarNumeros( [28,37,99,52,5], compararNumeros) );
