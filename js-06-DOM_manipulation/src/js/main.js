@@ -34,12 +34,35 @@ const changeElementById = () =>{
     const descripcionOperadores = document.getElementById("descripcion-document");
     console.log( descripcionOperadores );
     // descripcionOperadores.innerText = "document: representa cualquier página web carga en el navegador.";
-    //descripcionOperadores.innerText = "<strong>document</strong>: representa cualquier página web carga en el navegador.";
+    descripcionOperadores.innerText = "<strong>document</strong>: representa cualquier página web carga en el navegador.";
     //descripcionOperadores.innerHTML = "<strong>document</strong>: representa cualquier página web carga en el navegador.";
-    descripcionOperadores.innerHTML = '<span class="text-warning">document</span>: representa cualquier página web carga en el navegador.';
-}
+    //descripcionOperadores.innerHTML = '<span class="text-warning">document</span>: representa cualquier página web carga en el navegador.';
+} 
 
 changeElementById();
+
+/*
+    Modificar el parragraph de la linea 44 al 49 del html
+    Mostrar una tarjeta de bootstra´con el titulo <Abril>
+
+    - Crear una nueva función que inserte la tarjeta
+    - Invotar la función para que se ejecute.
+*/
+const cambiaElemntos = ( name ) => {
+    const descripcionOperadores = document.getElementById("tarjeta");
+    console.log(descripcionOperadores);
+    descripcionOperadores.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+        <img src = "./public/images/dino.jpg" class="card-img-top" alt="Dinosaurio rex escribiendo código" >
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div > `;
+}
+cambiaElemntos("Abril");
+
 
 /**
  * Modificar elementos por su tag(etiqueta HTML)
@@ -53,6 +76,17 @@ const changeElementsByTagName =  () => {
    }
 
 }
+
+/*
+    -Realizar una función que lea todos los botones de la página
+    y muestre en consola el número total de botones
+*/
+const contarBotones = () => {
+  //const botones = document.querySelectorAll("button");
+  const botones = document.getElementsByTagName("button");
+  console.log(`Número total de botones: ${botones.length}`);
+};
+contarBotones(); 
 
 // changeElementsByTagName();
 
