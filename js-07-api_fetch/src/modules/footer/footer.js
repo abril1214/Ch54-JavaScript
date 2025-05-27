@@ -9,3 +9,9 @@ const insertMainFooter = ( footer )=>{
 
 }
 
+const myVar2 = "CH54";
+export { insertMainFooter, myVar2 };
+
+
+// export  { insertMainFooter };
+// export default insertMainFooter;
