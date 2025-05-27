@@ -60,6 +60,8 @@ Características clave de los módulos JS:
     return a + b;
   }
 
+  export {PI, sumar}; // Exportcación nombrada
+
   También puedes exportar por defecto (solo uno por módulo):
   export default function saludar(nombre) {
     return `¡Hola, ${nombre}!`;
@@ -78,8 +80,14 @@ Características clave de los módulos JS:
 
 
 // importa las funciones del footer y header e invócalos para que se ejecuten
+import { insertMainHeader } from "../modules/header/header.js";
+insertMainHeader( document.getElementById("header") );
 
+import { insertMainFooter } from "../modules/footer/footer.js";
+insertMainFooter( document.getElementById("footer") );
+//footer( document.getElementById("footer") );
 
+//import footer from  "../modules/footer/footer.js"; -- import default
 
 /*
   Uso del local Storage.
@@ -97,12 +105,44 @@ Características clave de los módulos JS:
     localStorage.getItem("clave") → Obtiene un dato.
     localStorage.removeItem("clave") → Elimina un dato.
     localStorage.clear() → Borra todo el almacenamiento.
-
 */
 
+/* 
+Crear en el HTML un input y un botón para guardar el valor en el localStorage.      Al cargar la página, si hay un valor guardado, mostrarlo en el titulo H1 "Hola, {nombre}".   En caso contrario, mostrar "Hola, persona invitada". */
+const leerNombreDelLocalStorage = () => {
+  const nombre = localStorage.getItem("nombre") || "persona invitada";
+  return nombre;
+}
+const insertarNombreEnElDOM = () => {
+  const refH2 = document.querySelector("#bienvenida");
+  const nombre = leerNombreDelLocalStorage();
+  // refH1.innerHTML = `Hola, ${nombre}`;
+  refH2.textContent = `Hola, ${nombre}`;
+}
+insertarNombreEnElDOM();
+
+const manejoDelBotonGuardar = () => {
+  const refInput = document.querySelector("#nombreInput");
+  const newName = refInput.value;
+  newName && localStorage.setItem("nombre", newName);
+}
+
+// NO lo debemos hacer
+//window.allamadaBotonGuardar = manejoDelBotonGuardar;
 
 
+/**
+ *  ¿Qué es addEventListener?
+ *  Es un método que permite escuchar eventos (como click, keydown, submit, etc.) en un elemento 
+ *  del DOM, y ejecutar una función cuando ese evento ocurre.
+ * */
+const refSaveButton = document.getElementById("btnGuardar");
+refSaveButton.addEventListener( "click", manejoDelBotonGuardar  ); //onclick = html; click = java
 
+const refNameInput = documento.getElementById("nombreInput");
+refNameInput.addEventListener( "keydown" , ( event )=>{
+  console.log(event.key);
+});
 /*
   Programación síncrona.
  
@@ -126,12 +166,12 @@ const segundoPaso = () => {
 const tercerPaso = () => {
   console.log("03 - Fin de mi programa");
 };
+ 
 
-/*
 primerPaso();
 segundoPaso(); // Este proceso demora tiempo
 tercerPaso();
-*/
+
 
 /*
  Programación asíncrona.
@@ -152,7 +192,13 @@ tercerPaso();
      setTimeout( ()=>{}  , tiempo_ms );
 
 */
+const saludar = (nombre, nombreCh54)=> alert(`Hola ${nombre} de la ${cohorte}`);
 
-
-
-
+const saludarTranscurridoXSeg = ( milisegundos ) =>{
+  setTimeout( saludar, milisegundos, "Neo", "Cris", "ch54" );
+}
+/*
+console.log("Antes de saludar");
+saludarTranscurridoXSeg( 5000 );
+console.log("Después de saludar");
+*/
