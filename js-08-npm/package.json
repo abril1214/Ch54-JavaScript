@@ -1,0 +1,25 @@
+{
+  "name": "js-08-npm",
+  "version": "0.0.1",
+  "description": "uso de NPM en una aplicación web",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pruebita": "echo \"Soy de la Ch54\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://mirepo.com"
+  },
+  "keywords": [
+    "generation",
+    "js08",
+    "javascripts",
+    "ch54"
+  ],
+  "author": "abril, nancy, david, soto, chuy",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.6"
+  }
+}
